@@ -3,6 +3,7 @@ package com.darksoldier1404.dbp.events;
 import com.darksoldier1404.dbp.BackPack;
 import com.darksoldier1404.dbp.functions.DBPFunction;
 import com.darksoldier1404.dppc.utils.NBT;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -10,6 +11,7 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
+import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
 
@@ -35,7 +37,7 @@ public class DBPEvent implements Listener {
             }
         }
         if(e.getView().getTitle().contains("백팩 쿠폰 설정")) {
-            if(e.getSlot() != 13) {
+            if(e.getSlot() != 13 && e.getCurrentItem() != null && e.getCurrentItem().getType().equals(Material.STAINED_GLASS_PANE)) {
                 e.setCancelled(true);
                 return;
             }
