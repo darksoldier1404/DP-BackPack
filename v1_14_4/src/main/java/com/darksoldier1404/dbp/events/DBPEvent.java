@@ -36,7 +36,7 @@ public class DBPEvent implements Listener {
             }
         }
         if(e.getView().getTitle().contains("백팩 쿠폰 설정")) {
-            if(e.getSlot() != 13 && e.getClickedInventory().getType().equals(InventoryType.PLAYER)) {
+            if(e.getSlot() != 13 && !e.getClickedInventory().getType().equals(InventoryType.PLAYER)) {
                 e.setCancelled(true);
                 return;
             }
