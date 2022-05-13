@@ -10,6 +10,7 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
+import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
 
@@ -35,7 +36,7 @@ public class DBPEvent implements Listener {
             }
         }
         if(e.getView().getTitle().contains("백팩 쿠폰 설정")) {
-            if(e.getSlot() != 13) {
+            if(e.getSlot() != 13 && e.getClickedInventory().getType().equals(InventoryType.PLAYER)) {
                 e.setCancelled(true);
                 return;
             }
